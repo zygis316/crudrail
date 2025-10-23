@@ -16,4 +16,4 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 
 EXPOSE 5000
 
-ENTRYPOINT ["dotnet", "BookCrudApp.dll"]
+ENTRYPOINT ["dotnet", "BookCRUDApp.dll"]
