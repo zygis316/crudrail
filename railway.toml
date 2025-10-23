@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+buildCommand = "dotnet publish -c Release -o out"
+
+[deploy]
+startCommand = "cd out && dotnet BookCrudApp.dll"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
