@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// start added new part
+// new insert
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
-// end added new part
+// new insert
 
 builder.Services.AddControllersWithViews();
 
@@ -20,8 +20,10 @@ if (string.IsNullOrEmpty(connectionString))
 }
 
 // Configure database based on connection string type
-if (!string.IsNullOrEmpty(connectionString))
-{
+
+//if (!string.IsNullOrEmpty(connectionString))
+//{
+
     if (connectionString.Contains("postgres") || connectionString.StartsWith("postgresql://"))
     {
         // Railway PostgreSQL - convert connection string format
@@ -45,17 +47,10 @@ if (!string.IsNullOrEmpty(connectionString))
         builder.Services.AddDbContext<BookContext>(options =>
             options.UseSqlServer(connectionString));
     }
-}
+
+//}
 
 var app = builder.Build();
-
-// start new addon
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<BookContext>();
-    db.Database.Migrate();
-}
-// end new addon
 
 if (!app.Environment.IsDevelopment())
 {
