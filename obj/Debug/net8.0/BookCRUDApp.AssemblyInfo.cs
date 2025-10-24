@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookCRUDApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90e525bb2441a429eac1ac13553cd52b069a517b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a519c306c945cd4ec238b6198b793fc8ad12bb99")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookCRUDApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookCRUDApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

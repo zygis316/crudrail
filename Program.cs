@@ -3,6 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// start added new part
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+// end added new part
+
 builder.Services.AddControllersWithViews();
 
 // Get connection string from Railway or config file
@@ -43,6 +48,14 @@ if (!string.IsNullOrEmpty(connectionString))
 }
 
 var app = builder.Build();
+
+// start new addon
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BookContext>();
+    db.Database.Migrate();
+}
+// end new addon
 
 if (!app.Environment.IsDevelopment())
 {
