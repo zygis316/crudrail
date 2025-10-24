@@ -73,7 +73,7 @@ try
     using (var scope = app.Services.CreateScope())
     {
         var db = scope.ServiceProvider.GetRequiredService<BookContext>();
-        db.Database.Migrate();
+        db.Database.EnsureCreated(); // This creates tables from your models
     }
 }
 catch (Exception ex)
