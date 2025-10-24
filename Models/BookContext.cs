@@ -1,7 +1,7 @@
 ﻿using BookCRUDApp.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookCRUDApp.Models
+namespace BookCrudApp.Models
 {
     public class BookContext : DbContext
     {
@@ -15,9 +15,10 @@ namespace BookCRUDApp.Models
         {
             base.OnModelCreating(modelBuilder);
 
+            // Configure decimal precision for Price property
             modelBuilder.Entity<Book>()
                 .Property(b => b.Price)
-                .HasColumnType("decimal(18,2)");
+                .HasPrecision(18, 2);
         }
     }
 }
